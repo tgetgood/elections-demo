@@ -345,12 +345,12 @@
 
 (def host hosts/default-host)
 
-(defn ^:export init []
+(defn on-reload []
   (system/fullscreen host)
   (system/initialise!
    {:host host
     :handler ring-example-handler
     :app-db app-db}))
 
-(defn on-reload []
-  (init))
+(defn ^:export init []
+  (on-reload))
